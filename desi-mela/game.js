@@ -7,8 +7,8 @@ class DesiMelaGame {
     this.canvas = document.getElementById('game-canvas');
     this.ctx = this.canvas.getContext('2d');
 
-    // Game Mode State: 'ring' | 'balloon' | 'hathoda' | 'can' | 'gulel' | 'kuan' | 'dhanush' | 'train'
-    this.mode = 'ring';
+    // Game Mode State: 'balloon' | 'hathoda' | 'can' | 'gulel' | 'train'
+    this.mode = 'balloon';
     this.score = 0;
     this.attemptsLeft = 5;
     this.prizesWon = 0;
