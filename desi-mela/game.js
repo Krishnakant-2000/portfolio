@@ -799,8 +799,8 @@ class DesiMelaGame {
 
   // --- GAME 1: RING TOSS ---
   startHandThrowAnimation() {
-    this.handThrowing = true;
-    this.handAnimProgress = 0.5;
+    this.handThrowing = false;
+    this.handAnimProgress = 0;
   }
 
   tossRing() {
@@ -819,8 +819,7 @@ class DesiMelaGame {
     const targetX = startX + Math.cos(this.aimAngle) * throwDist + (Math.random() - 0.5) * 15;
     const targetY = startY + Math.sin(this.aimAngle) * throwDist;
 
-    this.handThrowing = true;
-    this.handAnimProgress = 0.5;
+    this.handThrowing = false;
 
     this.activeRing = {
       x: startX,
