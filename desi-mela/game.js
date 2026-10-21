@@ -800,7 +800,7 @@ class DesiMelaGame {
   // --- GAME 1: RING TOSS ---
   startHandThrowAnimation() {
     this.handThrowing = true;
-    this.handAnimProgress = 0;
+    this.handAnimProgress = 0.5;
   }
 
   tossRing() {
@@ -816,8 +816,11 @@ class DesiMelaGame {
     const maxDist = this.height * 0.65;
     const throwDist = minDist + (this.power / 100) * (maxDist - minDist);
 
-    const targetX = startX + Math.cos(this.aimAngle) * throwDist + (Math.random() - 0.5) * 20;
+    const targetX = startX + Math.cos(this.aimAngle) * throwDist + (Math.random() - 0.5) * 15;
     const targetY = startY + Math.sin(this.aimAngle) * throwDist;
+
+    this.handThrowing = true;
+    this.handAnimProgress = 0.5;
 
     this.activeRing = {
       x: startX,
@@ -827,7 +830,7 @@ class DesiMelaGame {
       scale: 1.0,
       targetScale: 0.42,
       progress: 0,
-      speed: 0.04
+      speed: 0.08 // Fast, buttery smooth ring toss
     };
   }
 
@@ -1310,7 +1313,7 @@ class DesiMelaGame {
 
     // Active Arrow Physics (Teer Dhanush)
     if (this.activeArrow) {
-      this.activeArrow.progress += 0.05;
+      this.activeArrow.progress += 0.08;
       if (this.activeArrow.progress >= 1) {
         this.activeArrow.progress = 1;
         this.checkArrowTargetCollision(this.activeArrow.targetX, this.activeArrow.targetY);
