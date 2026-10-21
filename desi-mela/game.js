@@ -159,17 +159,39 @@ class DesiMelaGame {
     this.resize();
     window.addEventListener('resize', () => this.resize());
 
-    // User Touch & Mouse Interactions
-    this.canvas.addEventListener('mousedown', (e) => this.handlePointerDown(e.clientX, e.clientY));
-    this.canvas.addEventListener('mousemove', (e) => this.handlePointerMove(e.clientX, e.clientY));
+    // User Touch & Mouse Interactions with canvas coordinate bounding box calculation
+    const getCanvasPos = (e) => {
+      const rect = this.canvas.getBoundingClientRect();
+      const clientX = (e.touches && e.touches.length > 0) ? e.touches[0].clientX : e.clientX;
+      const clientY = (e.touches && e.touches.length > 0) ? e.touches[0].clientY : e.clientY;
+      return {
+        x: (clientX - rect.left) * (this.width / rect.width),
+        y: (clientY - rect.top) * (this.height / rect.height)
+      };
+    };
+
+    this.canvas.addEventListener('mousedown', (e) => {
+      const pos = getCanvasPos(e);
+      this.handlePointerDown(pos.x, pos.y);
+    });
+    this.canvas.addEventListener('mousemove', (e) => {
+      const pos = getCanvasPos(e);
+      this.handlePointerMove(pos.x, pos.y);
+    });
     this.canvas.addEventListener('mouseup', () => this.handlePointerUp());
 
     this.canvas.addEventListener('touchstart', (e) => {
-      if (e.touches[0]) this.handlePointerDown(e.touches[0].clientX, e.touches[0].clientY);
+      if (e.touches && e.touches.length > 0) {
+        const pos = getCanvasPos(e);
+        this.handlePointerDown(pos.x, pos.y);
+      }
     }, { passive: true });
 
     this.canvas.addEventListener('touchmove', (e) => {
-      if (e.touches[0]) this.handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+      if (e.touches && e.touches.length > 0) {
+        const pos = getCanvasPos(e);
+        this.handlePointerMove(pos.x, pos.y);
+      }
     }, { passive: true });
 
     this.canvas.addEventListener('touchend', () => this.handlePointerUp());
@@ -775,6 +797,40 @@ class DesiMelaGame {
     };
   }
 
+  // --- GAME 1: RING TOSS ---
+  startHandThrowAnimation() {
+    this.handThrowing = true;
+    this.handAnimProgress = 0;
+  }
+
+  tossRing() {
+    if (this.attemptsLeft <= 0) return;
+
+    this.attemptsLeft--;
+    this.updateUI();
+
+    const startX = this.width / 2;
+    const startY = this.height - 80;
+
+    const minDist = this.height * 0.25;
+    const maxDist = this.height * 0.65;
+    const throwDist = minDist + (this.power / 100) * (maxDist - minDist);
+
+    const targetX = startX + Math.cos(this.aimAngle) * throwDist + (Math.random() - 0.5) * 20;
+    const targetY = startY + Math.sin(this.aimAngle) * throwDist;
+
+    this.activeRing = {
+      x: startX,
+      y: startY,
+      targetX,
+      targetY,
+      scale: 1.0,
+      targetScale: 0.42,
+      progress: 0,
+      speed: 0.04
+    };
+  }
+
   // --- GAME 7: TEER DHANUSH ---
   shootTeerArrow() {
     this.attemptsLeft--;
@@ -840,6 +896,11 @@ class DesiMelaGame {
   handlePointerDown(x, y) {
     const mainMenu = document.getElementById('main-menu-overlay');
     if (mainMenu && !mainMenu.classList.contains('hidden')) return;
+
+    // Prevent re-triggering shot while a projectile is still in flight
+    if (this.activeArrow || this.activeRing || this.activeBall || this.activePebble || this.activeCoin || this.activeBullet || this.handThrowing || this.hathodaSwinging) {
+      return;
+    }
 
     if (this.attemptsLeft <= 0) {
       this.evaluateLevelResult();
