@@ -192,10 +192,32 @@ function closeLightbox() {
     }
 }
 
-// Close lightbox on Escape key
+// Playable Game Modal
+function openGameModal() {
+    const modal = document.getElementById("gameModal");
+    const iframe = document.getElementById("gameIframe");
+    if (modal && iframe) {
+        iframe.src = "desi-mela/index.html";
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function closeGameModal() {
+    const modal = document.getElementById("gameModal");
+    const iframe = document.getElementById("gameIframe");
+    if (modal) {
+        modal.classList.add("hidden");
+        if (iframe) iframe.src = ""; // Unload iframe to stop audio & execution
+        document.body.style.overflow = "auto";
+    }
+}
+
+// Close modals on Escape key
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         closeLightbox();
+        closeGameModal();
     }
 });
 

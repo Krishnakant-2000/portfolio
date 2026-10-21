@@ -349,7 +349,12 @@
                             <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/60 text-slate-300 text-xs font-semibold">Capacitor</span>
                         </div>
 
-                        <div>
+                        <div class="flex flex-wrap items-center gap-4 pt-2">
+                            <button onclick="openGameModal()" class="px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-orange-500 to-pink-500 text-slate-950 font-black text-xs tracking-wider shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-105 transition-all flex items-center gap-2 border border-white/20 cursor-pointer">
+                                <i class="fa-solid fa-gamepad text-sm"></i>
+                                <span>Play Game Live in Browser</span>
+                            </button>
+
                             <a href="https://github.com/Krishnakant-2000/Desi_Mela_Game" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300">
                                 <span>View Source Code on GitHub</span>
                                 <i class="fa-solid fa-arrow-right"></i>
@@ -539,6 +544,35 @@
             </div>
             <div class="p-4 sm:p-6 flex-1 overflow-auto flex items-center justify-center bg-[#090512]">
                 <img id="lightboxImg" src="" alt="Enlarged Preview" class="max-w-full max-h-[75vh] object-contain rounded-2xl border border-purple-500/30 shadow-2xl">
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Playable Game Modal -->
+    <div id="gameModal" class="fixed inset-0 z-50 hidden bg-slate-950/95 backdrop-blur-2xl flex items-center justify-center p-2 sm:p-6" onclick="closeGameModal()">
+        <div class="relative max-w-6xl w-full h-[92vh] bg-[#090512] border border-amber-500/40 rounded-3xl overflow-hidden shadow-2xl flex flex-col" onclick="event.stopPropagation()">
+            <!-- Header -->
+            <div class="p-3 sm:px-6 sm:py-4 border-b border-amber-500/30 flex items-center justify-between bg-[#130C24]">
+                <div class="flex items-center gap-3">
+                    <span class="w-3 h-3 rounded-full bg-amber-400 animate-ping"></span>
+                    <h3 class="font-display text-sm sm:text-lg font-bold text-white flex items-center gap-2">
+                        <span>Desi Mela 3D Carnival Game</span>
+                        <span class="text-[10px] sm:text-xs px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 hidden sm:inline-block">8 Games Included</span>
+                    </h3>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="desi-mela/index.html" target="_blank" class="px-3 py-1.5 rounded-full bg-amber-500/20 text-amber-300 hover:text-white hover:bg-amber-500/30 text-xs font-bold transition-colors flex items-center gap-1.5 border border-amber-500/30">
+                        <i class="fa-solid fa-up-right-from-square"></i>
+                        <span>Full Screen</span>
+                    </a>
+                    <button onclick="closeGameModal()" class="w-8 h-8 rounded-full bg-purple-950 text-slate-300 hover:text-white hover:bg-purple-800 flex items-center justify-center text-base transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Game Iframe -->
+            <div class="flex-1 w-full h-full bg-slate-950 overflow-hidden relative">
+                <iframe id="gameIframe" src="" class="w-full h-full border-0"></iframe>
             </div>
         </div>
     </div>
