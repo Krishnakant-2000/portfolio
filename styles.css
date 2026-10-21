@@ -1,39 +1,4 @@
-/* Ultra Y2K / Cyber-Neon / Cosmic Starfield Theme Styling */
-
-/* CRT Scanline Overlay Effect */
-.crt-overlay {
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%,
-    rgba(0, 0, 0, 0.25) 50%
-  );
-  background-size: 100% 4px;
-}
-
-/* Marquee Header Animation */
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.marquee-track {
-  display: inline-flex;
-  animation: marquee 20s linear infinite;
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-
-/* Star Sparkle Pulse */
-@keyframes sparklePulse {
-  0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1.3) rotate(45deg); filter: drop-shadow(0 0 10px #39FF14); }
-}
-
-.star-sparkle {
-  display: inline-block;
-  animation: sparklePulse 3s infinite ease-in-out;
-}
+/* Refined Recruiter-Friendly Dark Theme Styling */
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
@@ -41,19 +6,25 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: #090D16;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #39FF14;
-  border-radius: 0px;
+  background: #1E293B;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF007F;
+  background: #38BDF8;
 }
 
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Selection Color */
+::selection {
+  background: #38BDF8;
+  color: #090D16;
 }
