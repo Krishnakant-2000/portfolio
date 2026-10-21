@@ -1,40 +1,27 @@
-/* Custom Styles & Background Animations */
+/* Ultra Y2K / Cyber-Neon / Bongabonga Theme Styling */
 
-@keyframes blob {
-  0% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-  100% { transform: translate(0px, 0px) scale(1); }
+/* CRT Scanline Overlay Effect */
+.crt-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
 }
 
-@keyframes gradient-xy {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+/* Marquee Header Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
-.animate-blob {
-  animation: blob 8s infinite ease-in-out;
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 20s linear infinite;
 }
 
-.animate-gradient-xy {
-  background-size: 200% 200%;
-  animation: gradient-xy 6s ease infinite;
-}
-
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
-}
-
-/* Cyberpunk Grid Background */
-.bg-cyber-grid {
-  background-size: 40px 40px;
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
 /* Custom Scrollbar */
@@ -43,16 +30,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #050811;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E293B;
-  border-radius: 4px;
+  background: #39FF14;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00F0FF;
+  background: #FF007F;
 }
 
 /* Smooth Scrolling */

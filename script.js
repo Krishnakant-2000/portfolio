@@ -1,17 +1,17 @@
-// Typing Effect
+// Y2K Typing Effect
 const phrases = [
-    "Cross-Platform React Native Apps",
-    "Scalable Supabase & PostgreSQL Backends",
-    "Live Sports Analytics & 3D Cards",
-    "Interactive 3D Web Canvas Games"
+    "REACT NATIVE & TYPESCRIPT APPS",
+    "SCALABLE SUPABASE & POSTGRESQL BACKENDS",
+    "21-SPORT ANALYTICS & 3D CARDS",
+    "INTERACTIVE 3D CANVAS GAMES"
 ];
 
 let phraseIndex = 0;
 let letterIndex = 0;
 let currentPhrase = "";
 let isDeleting = false;
-const typingSpeed = 70;
-const deletingSpeed = 40;
+const typingSpeed = 60;
+const deletingSpeed = 35;
 const delayBetweenPhrases = 2000;
 
 function typeEffect() {
@@ -40,13 +40,13 @@ function typeEffect() {
     } else if (isDeleting && letterIndex === 0) {
         isDeleting = false;
         phraseIndex++;
-        nextSpeed = 500;
+        nextSpeed = 400;
     }
 
     setTimeout(typeEffect, nextSpeed);
 }
 
-// Interactive Particle Constellation Canvas Background
+// Matrix Cyber Particle Canvas Background
 function initParticleCanvas() {
     const canvas = document.getElementById("bgCanvas");
     if (!canvas) return;
@@ -56,13 +56,9 @@ function initParticleCanvas() {
     let height = canvas.height = window.innerHeight;
 
     let particles = [];
-    const particleCount = Math.floor((width * height) / 18000); // Responsive particle density
+    const particleCount = Math.floor((width * height) / 16000);
 
-    const mouse = {
-        x: null,
-        y: null,
-        radius: 120
-    };
+    const mouse = { x: null, y: null, radius: 140 };
 
     window.addEventListener("resize", () => {
         width = canvas.width = window.innerWidth;
@@ -83,11 +79,11 @@ function initParticleCanvas() {
         constructor() {
             this.x = Math.random() * width;
             this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.6;
-            this.vy = (Math.random() - 0.5) * 0.6;
-            this.radius = Math.random() * 1.8 + 1;
-            this.color = Math.random() > 0.5 ? "rgba(0, 240, 255, " : "rgba(168, 85, 247, ";
-            this.alpha = Math.random() * 0.5 + 0.2;
+            this.vx = (Math.random() - 0.5) * 0.8;
+            this.vy = (Math.random() - 0.5) * 0.8;
+            this.radius = Math.random() * 2 + 1;
+            this.color = Math.random() > 0.5 ? "rgba(57, 255, 20, " : "rgba(255, 0, 127, ";
+            this.alpha = Math.random() * 0.6 + 0.2;
         }
 
         update() {
@@ -97,15 +93,14 @@ function initParticleCanvas() {
             if (this.x < 0 || this.x > width) this.vx *= -1;
             if (this.y < 0 || this.y > height) this.vy *= -1;
 
-            // Mouse Interaction
             if (mouse.x && mouse.y) {
                 const dx = mouse.x - this.x;
                 const dy = mouse.y - this.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < mouse.radius) {
                     const angle = Math.atan2(dy, dx);
-                    this.x -= Math.cos(angle) * 1.5;
-                    this.y -= Math.sin(angle) * 1.5;
+                    this.x -= Math.cos(angle) * 2;
+                    this.y -= Math.sin(angle) * 2;
                 }
             }
         }
@@ -125,26 +120,24 @@ function initParticleCanvas() {
     function animate() {
         ctx.clearRect(0, 0, width, height);
 
-        // Draw connections
         for (let a = 0; a < particles.length; a++) {
             for (let b = a + 1; b < particles.length; b++) {
                 const dx = particles[a].x - particles[b].x;
                 const dy = particles[a].y - particles[b].y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
-                if (dist < 110) {
-                    const alpha = (1 - dist / 110) * 0.15;
+                if (dist < 120) {
+                    const alpha = (1 - dist / 120) * 0.2;
                     ctx.beginPath();
                     ctx.moveTo(particles[a].x, particles[a].y);
                     ctx.lineTo(particles[b].x, particles[b].y);
-                    ctx.strokeStyle = `rgba(0, 240, 255, ${alpha})`;
-                    ctx.lineWidth = 0.8;
+                    ctx.strokeStyle = `rgba(57, 255, 20, ${alpha})`;
+                    ctx.lineWidth = 1;
                     ctx.stroke();
                 }
             }
         }
 
-        // Draw particles
         particles.forEach(p => {
             p.update();
             p.draw();
