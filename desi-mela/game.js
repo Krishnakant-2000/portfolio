@@ -86,6 +86,7 @@ class DesiMelaGame {
     // Animated Hand State
     this.handThrowing = false;
     this.handAnimProgress = 0;
+    this.ringTossedInCurrentHand = false;
 
     // Scope Aiming State
     this.isScoping = false;
@@ -799,8 +800,9 @@ class DesiMelaGame {
 
   // --- GAME 1: RING TOSS ---
   startHandThrowAnimation() {
-    this.handThrowing = false;
+    this.handThrowing = true;
     this.handAnimProgress = 0;
+    this.ringTossedInCurrentHand = false;
   }
 
   tossRing() {
@@ -818,8 +820,6 @@ class DesiMelaGame {
 
     const targetX = startX + Math.cos(this.aimAngle) * throwDist + (Math.random() - 0.5) * 15;
     const targetY = startY + Math.sin(this.aimAngle) * throwDist;
-
-    this.handThrowing = false;
 
     this.activeRing = {
       x: startX,
@@ -1190,11 +1190,12 @@ class DesiMelaGame {
     }
 
     if (this.handThrowing) {
-      this.handAnimProgress += 0.08;
-      if (this.handAnimProgress >= 0.4 && !this.activeRing) {
+      this.handAnimProgress += 0.12;
+      if (this.handAnimProgress >= 0.35 && !this.ringTossedInCurrentHand) {
+        this.ringTossedInCurrentHand = true;
         this.tossRing();
       }
-      if (this.handAnimProgress >= 1) {
+      if (this.handAnimProgress >= 1.0) {
         this.handThrowing = false;
         this.handAnimProgress = 0;
       }
