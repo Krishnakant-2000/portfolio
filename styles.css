@@ -1,4 +1,4 @@
-/* Refined Aura Emerald & Solar Amber Recruiter Theme */
+/* Framora Futuristic Dark Theme */
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
@@ -6,16 +6,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #06090F;
+  background: #090512;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1A2333;
+  background: #261B40;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00F5A0;
+  background: #A855F7;
 }
 
 /* Smooth Scrolling */
@@ -25,6 +25,13 @@ html {
 
 /* Selection Color */
 ::selection {
-  background: #00F5A0;
-  color: #06090F;
+  background: #EC4899;
+  color: #FFFFFF;
+}
+
+/* Custom Glassmorphic Backdrop */
+.backdrop-glass {
+  background: rgba(19, 12, 36, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }

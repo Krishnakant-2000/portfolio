@@ -150,6 +150,55 @@ function initStarfieldCanvas() {
     animate();
 }
 
+// FAQ Accordion Toggle
+function toggleFaq(btn) {
+    const parent = btn.parentElement;
+    const answer = parent.querySelector("div");
+    const icon = btn.querySelector(".faq-icon");
+
+    if (answer) {
+        const isHidden = answer.classList.contains("hidden");
+
+        // Close all other FAQs
+        document.querySelectorAll("#faq .faq-icon").forEach(i => i.textContent = "+");
+        document.querySelectorAll("#faq div.px-6").forEach(a => a.classList.add("hidden"));
+
+        if (isHidden) {
+            answer.classList.remove("hidden");
+            if (icon) icon.textContent = "−";
+        }
+    }
+}
+
+// Lightbox Modal Preview
+function openLightbox(imgSrc, title) {
+    const modal = document.getElementById("lightboxModal");
+    const modalImg = document.getElementById("lightboxImg");
+    const modalTitle = document.getElementById("lightboxTitle");
+
+    if (modal && modalImg && modalTitle) {
+        modalImg.src = imgSrc;
+        modalTitle.textContent = title || "Image Preview";
+        modal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function closeLightbox() {
+    const modal = document.getElementById("lightboxModal");
+    if (modal) {
+        modal.classList.add("hidden");
+        document.body.style.overflow = "auto";
+    }
+}
+
+// Close lightbox on Escape key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closeLightbox();
+    }
+});
+
 // Mobile Menu Toggle
 document.addEventListener("DOMContentLoaded", () => {
     typeEffect();

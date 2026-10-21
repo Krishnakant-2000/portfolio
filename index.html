@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krishnakant Bhardwaj | Full-Stack App & Web Developer</title>
+    <title>Krishnakant Bhardwaj | Full Stack Developer</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+    <!-- Google Fonts: Space Grotesk, Plus Jakarta Sans, Playfair Display -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@500;600;700;800&family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script>
         tailwind.config = {
@@ -21,15 +21,19 @@
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                         display: ['Space Grotesk', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        aura: {
-                            mint: '#00F5A0',
-                            gold: '#FACC15',
-                            emerald: '#059669',
-                            darkBg: '#06090F',
-                            darkCard: '#0C121E',
-                            darkBorder: '#1A2333'
+                        framora: {
+                            purple: '#A855F7',
+                            magenta: '#EC4899',
+                            orange: '#F97316',
+                            peach: '#FF7E5F',
+                            cyan: '#06B6D4',
+                            neonMint: '#00F5A0',
+                            darkBg: '#090512',
+                            darkCard: '#130C24',
+                            darkBorder: '#261B40',
                         }
                     }
                 }
@@ -37,127 +41,144 @@
         }
     </script>
 </head>
-<body class="bg-[#06090F] text-slate-100 font-sans selection:bg-aura-mint selection:text-slate-950 min-h-screen relative overflow-x-hidden">
+<body class="bg-[#090512] text-slate-100 font-sans selection:bg-purple-500 selection:text-white min-h-screen relative overflow-x-hidden">
 
-    <!-- Interactive Parallax Starfield Canvas (Subtle Emerald/Gold Dust) -->
-    <canvas id="bgCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-85"></canvas>
-
-    <!-- Ambient Subtle Glow Nebulae -->
+    <!-- Glowing Background Neon Nebulae -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div class="absolute -top-40 -left-40 w-[550px] h-[550px] bg-emerald-500/10 rounded-full blur-[140px] animate-pulse"></div>
-        <div class="absolute top-1/2 -right-40 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[140px] animate-pulse delay-1000"></div>
+        <div class="absolute -top-40 left-1/4 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[160px] animate-pulse"></div>
+        <div class="absolute top-1/3 -right-40 w-[550px] h-[550px] bg-pink-600/20 rounded-full blur-[160px] animate-pulse delay-1000"></div>
+        <div class="absolute bottom-10 left-10 w-[500px] h-[500px] bg-amber-600/15 rounded-full blur-[160px]"></div>
     </div>
 
     <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#06090F]/85 border-b border-slate-800/80 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#hero" class="font-display text-lg font-bold text-white tracking-wider flex items-center gap-2 group">
-                <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-400 to-amber-400 flex items-center justify-center text-slate-950 font-black text-sm group-hover:scale-105 transition-transform shadow-md shadow-emerald-500/20">KB</span>
-                <span>Krishnakant<span class="text-aura-mint">.dev</span></span>
+    <nav class="fixed top-0 left-0 right-0 z-50 py-5 px-6 backdrop-blur-md bg-[#090512]/60 border-b border-purple-900/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+            <!-- Brand Logo -->
+            <a href="#hero" class="group flex items-center gap-2 px-4 py-2 rounded-full border border-purple-500/30 bg-purple-950/40 backdrop-blur-xl shadow-lg shadow-purple-900/20 hover:border-purple-400 transition-all">
+                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-purple-500 via-pink-500 to-amber-400 flex items-center justify-center text-slate-950 font-black text-xs">
+                    KB
+                </div>
+                <span class="font-display font-extrabold text-base tracking-wide bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
+                    Krishnakant
+                </span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
-                <a href="#about" class="hover:text-aura-mint transition-colors">About</a>
-                <a href="#experience" class="hover:text-aura-mint transition-colors">Experience</a>
-                <a href="#projects" class="hover:text-aura-mint transition-colors">Projects</a>
-                <a href="#skills" class="hover:text-aura-mint transition-colors">Skills</a>
-                <a href="#contact" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-amber-400 text-slate-950 font-extrabold shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/35 hover:scale-105 transition-all">Get in Touch</a>
+            <!-- Center Floating Navigation Pill -->
+            <div class="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#180E30]/70 border border-purple-500/25 backdrop-blur-2xl shadow-xl shadow-purple-950/50">
+                <a href="#hero" class="px-5 py-2 rounded-full text-xs font-semibold text-white bg-purple-600/30 border border-purple-400/40 transition-all">Home</a>
+                <a href="#about" class="px-5 py-2 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-purple-500/10 transition-all">About</a>
+                <a href="#projects" class="px-5 py-2 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-purple-500/10 transition-all">Portfolios</a>
+                <a href="#faq" class="px-5 py-2 rounded-full text-xs font-medium text-slate-300 hover:text-white hover:bg-purple-500/10 transition-all">FAQ</a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
-            <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-xl">
+            <!-- Right CTA Button -->
+            <div class="hidden sm:flex items-center">
+                <a href="mailto:krishnakantbhardwaj2000@gmail.com" class="group px-6 py-2.5 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white font-bold text-xs tracking-wider shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:scale-105 transition-all flex items-center gap-2 border border-white/20">
+                    <span>Let's Collaborate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="mobileMenuBtn" class="md:hidden text-white text-xl p-2">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-[#06090F]/95 border-b border-slate-800 px-6 py-4 flex flex-col gap-4 font-medium text-slate-300 backdrop-blur-xl">
-            <a href="#about" class="hover:text-aura-mint py-1">About</a>
-            <a href="#experience" class="hover:text-aura-mint py-1">Experience</a>
-            <a href="#projects" class="hover:text-aura-mint py-1">Projects</a>
-            <a href="#skills" class="hover:text-aura-mint py-1">Skills</a>
-            <a href="#contact" class="text-aura-mint font-semibold py-1">Get in Touch</a>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#130C24]/95 border-b border-purple-800/40 px-6 py-4 mt-3 flex flex-col gap-3 font-medium text-slate-200 backdrop-blur-2xl rounded-2xl">
+            <a href="#hero" class="hover:text-purple-300 py-1">Home</a>
+            <a href="#about" class="hover:text-purple-300 py-1">About</a>
+            <a href="#projects" class="hover:text-purple-300 py-1">Portfolios</a>
+            <a href="#faq" class="hover:text-purple-300 py-1">FAQ</a>
+            <a href="mailto:krishnakantbhardwaj2000@gmail.com" class="text-pink-400 font-semibold py-1">Let's Collaborate ↗</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative z-10 min-h-screen pt-32 pb-20 flex items-center justify-center px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-12 gap-12 items-center">
+    <section id="hero" class="relative z-10 min-h-screen pt-36 pb-20 px-6 flex items-center justify-center">
+        <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center">
 
-            <!-- Left Info -->
-            <div class="md:col-span-7 space-y-6 text-left">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-aura-mint font-medium text-xs tracking-wide">
-                    <span class="w-2 h-2 rounded-full bg-aura-mint animate-ping"></span>
-                    <span>Available for Full-Stack & Mobile Engineering Roles</span>
+            <!-- Left Text Content -->
+            <div class="lg:col-span-7 space-y-6 text-left">
+
+                <!-- Sub-Greeting -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 font-semibold text-xs tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-pink-400 animate-ping"></span>
+                    <span>Full Stack & Mobile Engineer</span>
                 </div>
 
-                <h1 class="font-display text-4xl sm:text-6xl font-extrabold text-white leading-tight">
-                    Hi, I'm <span class="bg-gradient-to-r from-aura-mint via-emerald-300 to-amber-300 bg-clip-text text-transparent">Krishnakant Bhardwaj</span>
-                </h1>
+                <!-- Main Name Header -->
+                <h2 class="font-serif italic text-3xl sm:text-5xl text-slate-200 tracking-wide font-normal">
+                    I Am Krishnakant Bhardwaj
+                </h2>
 
-                <div class="text-xl sm:text-2xl font-medium text-slate-300 flex items-center gap-2 h-8">
-                    <span>I build</span>
-                    <span id="typingText" class="text-aura-mint font-semibold border-r-2 border-aura-mint pr-1 animate-pulse"></span>
+                <!-- Huge Display Headline (Matching Screenshot 1) -->
+                <div class="space-y-2">
+                    <h1 class="font-display text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white leading-none">
+                        <span class="bg-gradient-to-r from-white via-purple-100 to-pink-200 bg-clip-text text-transparent">FULL STACK</span>
+                    </h1>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-1">
+                        <a href="#projects" class="group px-7 py-3 rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-white font-black text-xl shadow-2xl shadow-pink-500/40 hover:scale-105 transition-all flex items-center justify-center border border-white/30">
+                            <i class="fa-solid fa-arrow-right text-2xl group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+
+                        <span class="font-display text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight bg-gradient-to-r from-orange-400 via-pink-400 to-purple-300 bg-clip-text text-transparent">
+                            DEVELOPER
+                        </span>
+                    </div>
                 </div>
 
-                <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
-                    Full-Stack App Developer specializing in <strong class="text-white">React Native & TypeScript</strong>. B.Tech graduate (2022) with 4+ years of professional engineering experience spanning backend systems, mobile apps, and interactive web applications.
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed pt-3">
+                    Specializing in <strong class="text-white">React Native, TypeScript, Expo, Supabase, and Node.js</strong>. Building production-grade mobile platforms, 3D interactive applications, and scalable backends.
                 </p>
 
-                <!-- Quick Stats Cards -->
-                <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-800/80">
-                    <div class="p-4 rounded-xl bg-[#0C121E]/80 border border-slate-800 backdrop-blur-md">
-                        <div class="font-display text-2xl sm:text-3xl font-extrabold text-white">4+</div>
-                        <div class="text-xs text-slate-400 font-medium mt-1">Years Experience</div>
+                <!-- Technology Brand Bar (Matching Bottom of Screenshot 1) -->
+                <div class="pt-8 flex flex-wrap items-center gap-3">
+                    <div class="px-4 py-2 rounded-xl bg-[#130C24]/80 border border-purple-900/40 backdrop-blur-md flex items-center gap-2 text-xs font-bold text-purple-200">
+                        <i class="fa-brands fa-react text-purple-400 text-base"></i>
+                        <span>React Native</span>
                     </div>
-                    <div class="p-4 rounded-xl bg-[#0C121E]/80 border border-slate-800 backdrop-blur-md">
-                        <div class="font-display text-2xl sm:text-3xl font-extrabold text-aura-mint">21</div>
-                        <div class="text-xs text-slate-400 font-medium mt-1">Sports Tracked</div>
+
+                    <div class="px-4 py-2 rounded-xl bg-[#130C24]/80 border border-purple-900/40 backdrop-blur-md flex items-center gap-2 text-xs font-bold text-pink-200">
+                        <i class="fa-brands fa-js text-yellow-400 text-base"></i>
+                        <span>TypeScript</span>
                     </div>
-                    <div class="p-4 rounded-xl bg-[#0C121E]/80 border border-slate-800 backdrop-blur-md">
-                        <div class="font-display text-2xl sm:text-3xl font-extrabold text-amber-400">100%</div>
-                        <div class="text-xs text-slate-400 font-medium mt-1">Production Ready</div>
+
+                    <div class="px-4 py-2 rounded-xl bg-[#130C24]/80 border border-purple-900/40 backdrop-blur-md flex items-center gap-2 text-xs font-bold text-amber-200">
+                        <i class="fa-solid fa-bolt text-amber-400 text-base"></i>
+                        <span>Expo</span>
+                    </div>
+
+                    <div class="px-4 py-2 rounded-xl bg-[#130C24]/80 border border-purple-900/40 backdrop-blur-md flex items-center gap-2 text-xs font-bold text-emerald-200">
+                        <i class="fa-solid fa-database text-emerald-400 text-base"></i>
+                        <span>Supabase</span>
+                    </div>
+
+                    <div class="px-4 py-2 rounded-xl bg-[#130C24]/80 border border-purple-900/40 backdrop-blur-md flex items-center gap-2 text-xs font-bold text-cyan-200">
+                        <i class="fa-brands fa-node-js text-green-400 text-base"></i>
+                        <span>Node.js</span>
                     </div>
                 </div>
 
-                <!-- Action Buttons -->
-                <div class="flex flex-wrap items-center gap-4 pt-4">
-                    <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-400 via-aura-mint to-teal-300 text-slate-950 font-extrabold shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/35 hover:scale-105 transition-all flex items-center gap-2">
-                        <span>View My Work</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                    <a href="https://github.com/Krishnakant-2000" target="_blank" class="px-6 py-3.5 rounded-xl bg-[#0C121E] border border-slate-700 text-white font-semibold hover:border-aura-mint hover:text-aura-mint transition-all flex items-center gap-2 backdrop-blur-md">
-                        <i class="fa-brands fa-github text-lg"></i>
-                        <span>GitHub Profile</span>
-                    </a>
-                </div>
             </div>
 
-            <!-- Right Profile Avatar Container -->
-            <div class="md:col-span-5 flex justify-center">
-                <div class="relative group w-72 sm:w-80">
-                    <!-- Emerald/Amber Soft Aura Glow -->
-                    <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-amber-400 rounded-3xl blur-xl opacity-40 group-hover:opacity-70 transition duration-500"></div>
+            <!-- Right Hero Graphic / Profile Image -->
+            <div class="lg:col-span-5 flex justify-center relative">
+                <div class="relative w-80 sm:w-96 aspect-square rounded-3xl overflow-hidden border border-purple-500/30 p-2 bg-gradient-to-b from-purple-900/40 via-pink-900/20 to-[#130C24] backdrop-blur-2xl shadow-2xl shadow-purple-950/80 group">
+                    <div class="w-full h-full rounded-2xl overflow-hidden relative bg-[#090512]">
+                        <img src="assets/profile.jpg" alt="Krishnakant Bhardwaj" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#090512] via-transparent to-transparent opacity-60"></div>
 
-                    <div class="relative bg-[#0C121E] border border-slate-800 rounded-3xl p-4 overflow-hidden shadow-2xl backdrop-blur-xl">
-                        <!-- Profile Image -->
-                        <div class="relative w-full h-80 rounded-2xl overflow-hidden bg-slate-800 flex items-center justify-center border border-slate-700/80">
-                            <img src="assets/profile.jpg" alt="Krishnakant Bhardwaj" class="w-full h-full object-cover">
-
-                            <!-- Overlay Badge -->
-                            <div class="absolute bottom-3 left-3 right-3 p-3 backdrop-blur-xl bg-[#06090F]/90 border border-slate-800 rounded-xl shadow-lg">
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <div class="text-xs text-slate-400 font-medium">Current Role</div>
-                                        <div class="text-sm font-bold text-white flex items-center gap-1.5">
-                                            <span class="w-2 h-2 rounded-full bg-aura-mint shadow-sm shadow-emerald-400"></span>
-                                            Full-Stack App Dev
-                                        </div>
-                                    </div>
-                                    <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-500/15 text-aura-mint border border-emerald-500/30">React Native</span>
-                                </div>
+                        <!-- Floating Stat Badge -->
+                        <div class="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-[#130C24]/90 border border-purple-500/30 backdrop-blur-xl flex items-center justify-between">
+                            <div>
+                                <div class="text-[10px] text-purple-300 font-bold uppercase tracking-wider">Experience</div>
+                                <div class="text-sm font-extrabold text-white">4+ Years Engineering</div>
                             </div>
+                            <span class="px-2.5 py-1 rounded-full bg-pink-500/20 border border-pink-500/40 text-pink-300 text-xs font-bold">Full Stack</span>
                         </div>
                     </div>
                 </div>
@@ -166,333 +187,353 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="relative z-10 py-24 px-6 border-t border-slate-800/80 bg-[#080D17]/50 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">About Me</h2>
-                <p class="text-slate-400 text-base sm:text-lg">Engineering scalable mobile applications, real-time backend systems, and interactive web products.</p>
+    <!-- About & Bento Grid Section (Matching Screenshot 2 & 3) -->
+    <section id="about" class="relative z-10 py-28 px-6 border-t border-purple-900/30 bg-[#0C0718]/60 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto space-y-16">
+
+            <!-- Section Pill & Headline -->
+            <div class="max-w-3xl space-y-4">
+                <div class="inline-block px-5 py-1.5 rounded-full border border-purple-400/40 bg-purple-950/40 text-purple-200 font-semibold text-xs tracking-wider">
+                    About
+                </div>
+
+                <h2 class="font-display text-3xl sm:text-5xl font-extrabold leading-tight text-white">
+                    <span class="text-orange-400">Automate The Manual, Accelerate The Future.</span>
+                    <span class="text-slate-200"> My Custom Full-Stack Solutions Deliver</span>
+                    <span class="text-slate-400"> Measurable Growth & Operational Excellence.</span>
+                </h2>
+
+                <p class="text-slate-400 text-base sm:text-lg">
+                    Empowering teams with intelligent tools, cross-platform mobile apps, and high-performance backend systems.
+                </p>
             </div>
 
+            <!-- Bento Grid Cards (Matching Screenshot 2 & 3) -->
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="p-8 rounded-2xl bg-[#0C121E]/90 border border-slate-800 hover:border-emerald-500/50 transition-all hover:-translate-y-1 shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-aura-mint flex items-center justify-center text-xl mb-6">
-                        <i class="fa-solid fa-mobile-screen-button"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-white mb-3">Mobile App Architecture</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Currently focused on React Native, Expo & TypeScript. Building production apps like AmaPlayer with 21 sports tracking, 3D Trading Cards, and real-time score updates.
-                    </p>
-                </div>
 
-                <!-- Card 2 -->
-                <div class="p-8 rounded-2xl bg-[#0C121E]/90 border border-slate-800 hover:border-amber-500/50 transition-all hover:-translate-y-1 shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center text-xl mb-6">
-                        <i class="fa-solid fa-layer-group"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-white mb-3">Full-Stack Web Development</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Experienced in building modern responsive web platforms, admin dashboards, and dynamic UI applications powered by Node.js, Express, and Tailwind CSS.
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="p-8 rounded-2xl bg-[#0C121E]/90 border border-slate-800 hover:border-teal-500/50 transition-all hover:-translate-y-1 shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/25 text-teal-400 flex items-center justify-center text-xl mb-6">
-                        <i class="fa-solid fa-server"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-white mb-3">Backend & Security Engineering</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Deep background in PostgreSQL database design, REST/GraphQL APIs, Supabase (Realtime, Edge Functions), Firebase Auth, and Row Level Security (RLS).
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Timeline Section -->
-    <section id="experience" class="relative z-10 py-24 px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">Career & Experience</h2>
-                <p class="text-slate-400 text-base sm:text-lg">4+ Years Progressing From Backend to Full-Stack Web & Mobile Engineering</p>
-            </div>
-
-            <div class="relative border-l-2 border-slate-800 ml-4 md:ml-32 space-y-12">
-
-                <!-- Timeline Item 1: 2025 - Present -->
-                <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-aura-mint ring-4 ring-slate-950"></div>
-
-                    <div class="hidden md:block absolute -left-32 top-1 text-xs font-bold text-aura-mint tracking-wider">
-                        2025 – PRESENT
+                <!-- Bento Card 1: Experience & Stat -->
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-purple-900/40 via-[#130C24] to-pink-900/20 border border-purple-500/30 backdrop-blur-2xl shadow-xl flex flex-col justify-between space-y-6 hover:border-pink-500/50 transition-all hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/20 border border-purple-400/40 text-purple-300 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-chart-line"></i>
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-[#0C121E]/90 border border-slate-800 shadow-xl">
-                        <div class="md:hidden text-xs font-bold text-aura-mint tracking-wider mb-2">2025 – PRESENT</div>
-                        <h3 class="font-display text-xl font-bold text-white">Full-Stack Mobile App Developer</h3>
-                        <div class="text-slate-400 text-sm font-medium mb-4">Tech Stack: React Native, TypeScript, Expo, Supabase, Firebase</div>
-                        <ul class="text-slate-300 text-sm space-y-2 list-disc list-inside leading-relaxed">
-                            <li>Lead mobile developer on <strong class="text-white">AmaPlayer</strong> — cross-platform React Native app tracking 21 sports across 12 Indian languages.</li>
-                            <li>Engineered 3D FIFA-style Player Trading Cards, position-aware stat cards, and Deep Insights box-scores.</li>
-                            <li>Integrated Supabase Realtime DB, PostgreSQL, and Edge Functions for live sports match score sync (IPL, ISL, EPL, NBA).</li>
-                            <li>Developed <strong class="text-white">Desi Mela 3D Game</strong> — 8 HTML5 Canvas carnival games with coin economy, daily energy, and multi-language support.</li>
-                        </ul>
+                    <div>
+                        <div class="font-display text-4xl sm:text-5xl font-black text-white">4+ Years</div>
+                        <p class="text-slate-300 text-sm font-medium mt-2 leading-relaxed">
+                            Professional engineering experience across React Native, Node.js, PostgreSQL, and Supabase cloud infrastructure.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Timeline Item 2: 2024 - 2025 -->
-                <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-400 ring-4 ring-slate-950"></div>
-
-                    <div class="hidden md:block absolute -left-32 top-1 text-xs font-bold text-amber-400 tracking-wider">
-                        2024 – 2025
+                <!-- Bento Card 2: Avatar Stack & Reach -->
+                <div class="p-8 rounded-3xl bg-[#130C24]/90 border border-purple-500/25 backdrop-blur-2xl shadow-xl flex flex-col justify-between space-y-6 hover:border-purple-400/50 transition-all hover:-translate-y-1">
+                    <!-- Avatar Stack -->
+                    <div class="flex items-center -space-x-3">
+                        <div class="w-10 h-10 rounded-full border-2 border-purple-900 bg-purple-600 flex items-center justify-center text-white text-xs font-bold">RN</div>
+                        <div class="w-10 h-10 rounded-full border-2 border-purple-900 bg-pink-600 flex items-center justify-center text-white text-xs font-bold">TS</div>
+                        <div class="w-10 h-10 rounded-full border-2 border-purple-900 bg-amber-500 flex items-center justify-center text-white text-xs font-bold">EX</div>
+                        <div class="w-10 h-10 rounded-full border-2 border-purple-900 bg-emerald-500 flex items-center justify-center text-white text-xs font-bold">SB</div>
                     </div>
 
-                    <div class="p-6 rounded-2xl bg-[#0C121E]/90 border border-slate-800 shadow-xl">
-                        <div class="md:hidden text-xs font-bold text-amber-400 tracking-wider mb-2">2024 – 2025</div>
-                        <h3 class="font-display text-xl font-bold text-white">Full-Stack Web Developer</h3>
-                        <div class="text-slate-400 text-sm font-medium mb-4">Tech Stack: Modern Web Frameworks, JavaScript/TypeScript, Node.js, Tailwind CSS</div>
-                        <ul class="text-slate-300 text-sm space-y-2 list-disc list-inside leading-relaxed">
-                            <li>Built responsive web applications, interactive admin dashboards, and customer-facing web portals.</li>
-                            <li>Developed end-to-end features connecting frontend UIs to cloud databases and third-party APIs.</li>
-                            <li>Created reusable UI component libraries with modern CSS frameworks and glassmorphism themes.</li>
-                        </ul>
+                    <div>
+                        <div class="font-display text-3xl font-extrabold text-white">21 Sports Tracked</div>
+                        <p class="text-slate-300 text-sm font-medium mt-1 leading-relaxed">
+                            Architected AmaPlayer with 3D Trading Cards and real-time match scoring across 12 Indian languages.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Timeline Item 3: 2022 - 2024 -->
-                <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-teal-400 ring-4 ring-slate-950"></div>
+                <!-- Bento Card 3: Speed & Quality -->
+                <div class="p-8 rounded-3xl bg-gradient-to-br from-pink-900/30 via-[#130C24] to-purple-950/50 border border-pink-500/30 backdrop-blur-2xl shadow-xl flex flex-col justify-between space-y-6 hover:border-pink-400/50 transition-all hover:-translate-y-1">
+                    <div class="font-display text-4xl sm:text-5xl font-black text-pink-400">5X</div>
 
-                    <div class="hidden md:block absolute -left-32 top-1 text-xs font-bold text-teal-400 tracking-wider">
-                        2022 – 2024
-                    </div>
-
-                    <div class="p-6 rounded-2xl bg-[#0C121E]/90 border border-slate-800 shadow-xl">
-                        <div class="md:hidden text-xs font-bold text-teal-400 tracking-wider mb-2">2022 – 2024</div>
-                        <h3 class="font-display text-xl font-bold text-white">Backend Engineer</h3>
-                        <div class="text-slate-400 text-sm font-medium mb-4">Tech Stack: Node.js, Express, PostgreSQL, REST/GraphQL APIs, Security</div>
-                        <ul class="text-slate-300 text-sm space-y-2 list-disc list-inside leading-relaxed">
-                            <li>Designed high-performance RESTful APIs and PostgreSQL schema architectures.</li>
-                            <li>Implemented JWT authentication, token refresh flows, and role-based authorization (RBAC).</li>
-                            <li>Optimized SQL database query performance, indexing, and CDN caching to reduce latency by over 40%.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 4: Education -->
-                <div class="relative pl-8 md:pl-12">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-emerald-400 ring-4 ring-slate-950"></div>
-
-                    <div class="hidden md:block absolute -left-32 top-1 text-xs font-bold text-emerald-400 tracking-wider">
-                        2018 – 2022
-                    </div>
-
-                    <div class="p-6 rounded-2xl bg-[#0C121E]/90 border border-slate-800 shadow-xl">
-                        <div class="md:hidden text-xs font-bold text-emerald-400 tracking-wider mb-2">2018 – 2022</div>
-                        <h3 class="font-display text-xl font-bold text-white">B.Tech in Computer Science / Engineering</h3>
-                        <div class="text-slate-400 text-sm font-medium">Graduated 2022</div>
+                    <div>
+                        <div class="font-display text-xl font-bold text-white">Faster Speed To Market</div>
                         <p class="text-slate-300 text-sm mt-2 leading-relaxed">
-                            Comprehensive background in Computer Science fundamentals: Data Structures & Algorithms, Database Systems, Computer Networks, and Software Engineering Principles.
+                            End-to-end delivery from architecture design to production release on Google Play & Apple App Store.
                         </p>
                     </div>
                 </div>
 
             </div>
+
         </div>
     </section>
 
-    <!-- Featured Projects Section -->
-    <section id="projects" class="relative z-10 py-24 px-6 border-t border-slate-800/80 bg-[#080D17]/50 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">Featured Projects</h2>
-                <p class="text-slate-400 text-base sm:text-lg">Highlighted production mobile app and interactive web game.</p>
+    <!-- Portfolios / Featured Projects Section (Matching Screenshot 3) -->
+    <section id="projects" class="relative z-10 py-28 px-6 border-t border-purple-900/30 overflow-hidden">
+
+        <!-- Giant Background Display Typography ("PORTFOLIO") -->
+        <div class="absolute top-10 left-1/2 -translate-x-1/2 text-[14vw] font-black text-purple-900/10 tracking-widest pointer-events-none select-none uppercase font-display whitespace-nowrap z-0">
+            PORTFOLIO
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10 space-y-16">
+
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <div class="inline-block px-5 py-1.5 rounded-full border border-purple-400/40 bg-purple-950/40 text-purple-200 font-semibold text-xs tracking-wider">
+                    Featured Work
+                </div>
+                <h2 class="font-display text-4xl sm:text-5xl font-extrabold text-white">Production Portfolios</h2>
+                <p class="text-slate-400 text-base sm:text-lg">Mobile applications, 3D interactive web games, and full-stack systems.</p>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-10">
+            <!-- Project Cards Stack (Matching Layout in Screenshot 3) -->
+            <div class="space-y-12">
 
                 <!-- Project 1: AmaPlayer -->
-                <div class="group rounded-3xl bg-[#0C121E]/90 border border-slate-800 overflow-hidden hover:border-emerald-500/50 transition-all hover:-translate-y-1 shadow-2xl">
-                    <div class="p-8 space-y-6">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-aura-mint">Mobile Application</span>
-                            <span class="text-xs text-slate-400"><i class="fa-solid fa-globe mr-1"></i>12 Indian Languages</span>
+                <div class="p-8 sm:p-12 rounded-3xl bg-[#130C24]/90 border border-purple-500/30 backdrop-blur-2xl shadow-2xl hover:border-purple-400/60 transition-all grid lg:grid-cols-12 gap-8 items-center group">
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="flex items-center gap-3">
+                            <span class="px-3.5 py-1 rounded-full bg-purple-500/20 border border-purple-400/40 text-purple-300 text-xs font-bold">Mobile App</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-globe mr-1"></i>12 Languages</span>
                         </div>
 
-                        <h3 class="font-display text-2xl font-bold text-white group-hover:text-aura-mint transition-colors">
-                            AmaPlayer — Sports Talent & Live Scoring Platform
+                        <h3 class="font-serif italic text-3xl sm:text-4xl font-normal text-white group-hover:text-purple-300 transition-colors">
+                            Web & App Development
                         </h3>
+                        <h4 class="font-display text-xl font-bold text-slate-200">AmaPlayer — Sports Talent & Live Scoring Platform</h4>
 
                         <p class="text-slate-300 text-sm leading-relaxed">
-                            React Native / Expo mobile application tracking <strong class="text-white">21 total sports</strong> (Football, Cricket, Kabaddi, Powerlifting, Kho-Kho, etc.). Features FIFA-style 3D Trading Cards, Deep Insights box-scores, Supabase Realtime live scores, and Firebase integration.
+                            Cross-platform React Native app tracking 21 sports with position-aware stat cards, 3D FIFA-style Trading Cards, Deep Insights box-scores, and Supabase Realtime scoring.
                         </p>
 
-                        <!-- Highlights -->
-                        <div class="space-y-2 text-xs text-slate-300">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-aura-mint"></i><span>Supports 21 sports with position-aware stat cards</span></div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-aura-mint"></i><span>Deep Insights Modal & Live Professional Match sync (TheSportsDB API)</span></div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-aura-mint"></i><span>100% compliant with Google Play Data Safety & Apple App Privacy</span></div>
-                        </div>
-
-                        <!-- Tech Stack Tags -->
+                        <!-- Tags -->
                         <div class="flex flex-wrap gap-2 pt-2">
-                            <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 text-xs font-medium border border-slate-700/50">React Native</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 text-xs font-medium border border-slate-700/50">TypeScript</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 text-xs font-medium border border-slate-700/50">Expo</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 text-xs font-medium border border-slate-700/50">Supabase</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 text-xs font-medium border border-slate-700/50">Firebase</span>
+                            <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/60 text-slate-300 text-xs font-semibold">React Native</span>
+                            <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/60 text-slate-300 text-xs font-semibold">TypeScript</span>
+                            <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/60 text-slate-300 text-xs font-semibold">Expo</span>
+                            <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/60 text-slate-300 text-xs font-semibold">Supabase</span>
+                            <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/60 text-slate-300 text-xs font-semibold">Firebase</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6">
+                        <div class="relative rounded-2xl overflow-hidden border border-purple-500/30 bg-purple-950/30 shadow-2xl group-hover:scale-102 transition-transform duration-500 cursor-pointer" onclick="openLightbox('assets/Mokker.png', 'AmaPlayer Showcase')">
+                            <img src="assets/Mokker.png" alt="AmaPlayer Mockup" class="w-full h-auto object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#130C24] via-transparent to-transparent opacity-40"></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2: Desi Mela 3D Game -->
-                <div class="group rounded-3xl bg-[#0C121E]/90 border border-slate-800 overflow-hidden hover:border-amber-500/50 transition-all hover:-translate-y-1 shadow-2xl">
-                    <div class="p-8 space-y-6">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400">3D Web Game</span>
-                            <span class="text-xs text-slate-400"><i class="fa-solid fa-gamepad mr-1"></i>8 Carnival Games</span>
+                <div class="p-8 sm:p-12 rounded-3xl bg-[#130C24]/90 border border-purple-500/30 backdrop-blur-2xl shadow-2xl hover:border-amber-400/60 transition-all grid lg:grid-cols-12 gap-8 items-center group">
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="flex items-center gap-3">
+                            <span class="px-3.5 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-bold">3D Web Game</span>
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-gamepad mr-1"></i>8 Carnival Games</span>
                         </div>
 
-                        <h3 class="font-display text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">
-                            Desi Mela 3D Carnival Game
+                        <h3 class="font-serif italic text-3xl sm:text-4xl font-normal text-white group-hover:text-amber-300 transition-colors">
+                            App & Game Design
                         </h3>
+                        <h4 class="font-display text-xl font-bold text-slate-200">Desi Mela 3D Carnival Game</h4>
 
                         <p class="text-slate-300 text-sm leading-relaxed">
-                            Interactive 3D Indian carnival web game featuring <strong class="text-white">8 traditional games</strong> (Ring Toss, Balloon Shoot, Hathoda Tod, Gulel Matka, Teer Dhanush, Toy Train Gallery, Can Pyramid Smash, Kuan Khel).
+                            Interactive 3D Indian carnival web game featuring 8 traditional games (Ring Toss, Balloon Shoot, Hathoda Tod, Gulel Matka, etc.) built with HTML5 Canvas, Web Audio, and 3D trajectory physics.
                         </p>
 
-                        <!-- Highlights -->
-                        <div class="space-y-2 text-xs text-slate-300">
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i><span>180° trajectory aiming & 3D canvas physics</span></div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i><span>Coin economy, daily energy, rewarded ads, & sound effects</span></div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i><span>Multilingual support across 5 major Indian languages</span></div>
-                        </div>
-
-                        <!-- Tech Stack Tags -->
+                        <!-- Tags -->
                         <div class="flex flex-wrap gap-2 pt-2">
-                            <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 text-xs font-medium border border-slate-700/50">HTML5 Canvas</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 text-xs font-medium border border-slate-700/50">JavaScript</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 text-xs font-medium border border-slate-700/50">Web Audio API</span>
-                            <span class="px-2.5 py-1 rounded-md bg-slate-800/80 text-slate-300 text-xs font-medium border border-slate-700/50">Capacitor</span>
+                            <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/60 text-slate-300 text-xs font-semibold">HTML5 Canvas</span>
+                            <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/60 text-slate-300 text-xs font-semibold">JavaScript</span>
+                            <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/60 text-slate-300 text-xs font-semibold">Web Audio API</span>
+                            <span class="px-3 py-1 rounded-full bg-purple-950/80 border border-purple-800/60 text-slate-300 text-xs font-semibold">Capacitor</span>
                         </div>
 
-                        <div class="pt-2">
+                        <div>
                             <a href="https://github.com/Krishnakant-2000/Desi_Mela_Game" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-amber-400 hover:text-amber-300">
                                 <span>View Source Code on GitHub</span>
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
+
+                    <div class="lg:col-span-6">
+                        <!-- 2-Image Screenshot Collage for Desi Mela -->
+                        <div class="grid grid-cols-2 gap-3 relative rounded-2xl p-2 bg-[#090512]/70 border border-amber-500/30 backdrop-blur-xl shadow-2xl group">
+                            <!-- Screenshot 1 -->
+                            <div class="rounded-xl overflow-hidden border border-amber-500/20 cursor-pointer hover:border-amber-400 transition-all hover:scale-102 group-hover:shadow-amber-500/20" onclick="openLightbox('assets/Screenshot 2026-10-21 142124.png', 'Desi Mela 3D Carnival Gameplay')">
+                                <img src="assets/Screenshot 2026-10-21 142124.png" alt="Desi Mela Gameplay" class="w-full h-48 sm:h-56 object-cover object-center">
+                            </div>
+                            <!-- Screenshot 2 -->
+                            <div class="rounded-xl overflow-hidden border border-amber-500/20 cursor-pointer hover:border-amber-400 transition-all hover:scale-102 group-hover:shadow-amber-500/20" onclick="openLightbox('assets/Screenshot 2026-10-21 142201.png', 'Desi Mela 3D Trajectory & Physics')">
+                                <img src="assets/Screenshot 2026-10-21 142201.png" alt="Desi Mela 3D Canvas" class="w-full h-48 sm:h-56 object-cover object-center">
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
+
         </div>
     </section>
 
-    <!-- Skills Matrix Section -->
-    <section id="skills" class="relative z-10 py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">Technical Skills</h2>
-                <p class="text-slate-400 text-base sm:text-lg">Languages, frameworks, databases, and development tools I work with daily.</p>
+    <!-- FAQ Section (Matching Screenshot 4 & 5) -->
+    <section id="faq" class="relative z-10 py-28 px-6 border-t border-purple-900/30 bg-[#0C0718]/70 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto space-y-16">
+
+            <!-- Pill Badge & Title -->
+            <div class="space-y-4">
+                <div class="inline-block px-5 py-1.5 rounded-full border border-purple-400/40 bg-purple-950/40 text-purple-200 font-semibold text-xs tracking-wider">
+                    Frequently Asked Questions
+                </div>
+
+                <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white max-w-3xl leading-tight">
+                    <span class="text-orange-400">Automate The Manual, Accelerate The Future.</span>
+                    <span class="text-slate-200"> Our Custom Full-Stack Solutions Deliver Measurable Growth</span>
+                </h2>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <!-- Two-Column FAQ Layout (Matching Screenshot 4 & 5) -->
+            <div class="grid lg:grid-cols-12 gap-10 items-start">
 
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-brands fa-react text-3xl text-aura-mint mb-2"></i>
-                    <div class="text-xs font-bold text-white">React Native</div>
+                <!-- Left Column: Book a Call Card (Matching Left Card in Screenshot 4 & 5) -->
+                <div class="lg:col-span-5 p-8 rounded-3xl bg-gradient-to-br from-purple-900/40 via-[#130C24] to-pink-900/30 border border-purple-500/30 backdrop-blur-2xl shadow-2xl space-y-6">
+                    <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-purple-400">
+                        <img src="assets/profile.jpg" alt="Krishnakant Bhardwaj" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="space-y-2">
+                        <h3 class="font-display text-2xl font-black text-white">BOOK A 15 MIN CALL</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Have questions or want to discuss a full-stack engineering role or project? Book a quick 15-minute call directly.
+                        </p>
+                    </div>
+
+                    <a href="mailto:krishnakantbhardwaj2000@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-xs tracking-wider shadow-lg shadow-pink-500/30 hover:scale-105 transition-all">
+                        <span>Book a Free Call</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
                 </div>
 
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-brands fa-js text-3xl text-yellow-300 mb-2"></i>
-                    <div class="text-xs font-bold text-white">TypeScript</div>
-                </div>
+                <!-- Right Column: Accordion FAQ List (Matching Screenshot 4 & 5) -->
+                <div class="lg:col-span-7 space-y-4">
 
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-solid fa-bolt text-3xl text-amber-400 mb-2"></i>
-                    <div class="text-xs font-bold text-white">Expo</div>
-                </div>
+                    <!-- FAQ Item 1 -->
+                    <div class="rounded-2xl bg-[#130C24]/90 border border-purple-500/25 overflow-hidden transition-all">
+                        <button class="w-full p-6 text-left flex items-center justify-between gap-4 font-display text-base font-bold text-white hover:text-purple-300 transition-colors" onclick="toggleFaq(this)">
+                            <span>What technologies do you specialize in?</span>
+                            <span class="w-8 h-8 rounded-full bg-purple-950 border border-purple-700/50 flex items-center justify-center text-purple-300 text-sm faq-icon">+</span>
+                        </button>
+                        <div class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-purple-900/30 pt-4">
+                            I specialize in cross-platform mobile development with <strong class="text-white">React Native, TypeScript, and Expo</strong>, along with backend architecture using <strong class="text-white">Supabase, Node.js, and PostgreSQL</strong>.
+                        </div>
+                    </div>
 
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-solid fa-database text-3xl text-emerald-400 mb-2"></i>
-                    <div class="text-xs font-bold text-white">Supabase</div>
-                </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="rounded-2xl bg-[#130C24]/90 border border-purple-500/25 overflow-hidden transition-all">
+                        <button class="w-full p-6 text-left flex items-center justify-between gap-4 font-display text-base font-bold text-white hover:text-purple-300 transition-colors" onclick="toggleFaq(this)">
+                            <span>Are you available for full-time software engineering roles?</span>
+                            <span class="w-8 h-8 rounded-full bg-purple-950 border border-purple-700/50 flex items-center justify-center text-purple-300 text-sm faq-icon">+</span>
+                        </button>
+                        <div class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-purple-900/30 pt-4">
+                            Yes! I am open to full-time Full-Stack Mobile & Web Engineering roles, as well as high-impact freelance development projects.
+                        </div>
+                    </div>
 
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-solid fa-fire text-3xl text-orange-500 mb-2"></i>
-                    <div class="text-xs font-bold text-white">Firebase</div>
-                </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="rounded-2xl bg-[#130C24]/90 border border-purple-500/25 overflow-hidden transition-all">
+                        <button class="w-full p-6 text-left flex items-center justify-between gap-4 font-display text-base font-bold text-white hover:text-purple-300 transition-colors" onclick="toggleFaq(this)">
+                            <span>How do you handle real-time data and live match scoring?</span>
+                            <span class="w-8 h-8 rounded-full bg-purple-950 border border-purple-700/50 flex items-center justify-center text-purple-300 text-sm faq-icon">+</span>
+                        </button>
+                        <div class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-purple-900/30 pt-4">
+                            I utilize <strong class="text-white">Supabase Realtime WebSockets</strong> and PostgreSQL triggers to synchronize live match data instantly across mobile clients without heavy REST polling.
+                        </div>
+                    </div>
 
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-brands fa-node-js text-3xl text-green-500 mb-2"></i>
-                    <div class="text-xs font-bold text-white">Node.js</div>
-                </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="rounded-2xl bg-[#130C24]/90 border border-purple-500/25 overflow-hidden transition-all">
+                        <button class="w-full p-6 text-left flex items-center justify-between gap-4 font-display text-base font-bold text-white hover:text-purple-300 transition-colors" onclick="toggleFaq(this)">
+                            <span>Can you build 3D interactive web & game applications?</span>
+                            <span class="w-8 h-8 rounded-full bg-purple-950 border border-purple-700/50 flex items-center justify-center text-purple-300 text-sm faq-icon">+</span>
+                        </button>
+                        <div class="hidden px-6 pb-6 text-sm text-slate-300 leading-relaxed border-t border-purple-900/30 pt-4">
+                            Yes! I built <strong class="text-white">Desi Mela 3D Game</strong> with HTML5 Canvas, 180° trajectory physics, coin economy, and Web Audio API.
+                        </div>
+                    </div>
 
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-solid fa-server text-3xl text-blue-400 mb-2"></i>
-                    <div class="text-xs font-bold text-white">PostgreSQL</div>
-                </div>
-
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-solid fa-code text-3xl text-teal-400 mb-2"></i>
-                    <div class="text-xs font-bold text-white">Tailwind CSS</div>
-                </div>
-
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-solid fa-cloud text-3xl text-amber-300 mb-2"></i>
-                    <div class="text-xs font-bold text-white">Cloudflare R2</div>
-                </div>
-
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-solid fa-cubes text-3xl text-emerald-300 mb-2"></i>
-                    <div class="text-xs font-bold text-white">HTML5 Canvas</div>
-                </div>
-
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-brands fa-git-alt text-3xl text-red-500 mb-2"></i>
-                    <div class="text-xs font-bold text-white">Git & GitHub</div>
-                </div>
-
-                <div class="p-4 rounded-xl bg-[#0C121E]/90 border border-slate-800 text-center hover:border-emerald-500/50 transition-all shadow-md">
-                    <i class="fa-solid fa-vial text-3xl text-teal-300 mb-2"></i>
-                    <div class="text-xs font-bold text-white">Jest Testing</div>
                 </div>
 
             </div>
+
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="relative z-10 py-24 px-6 border-t border-slate-800/80 bg-[#080D17]/50 backdrop-blur-md">
-        <div class="max-w-4xl mx-auto text-center space-y-8">
-            <h2 class="font-display text-3xl sm:text-5xl font-extrabold text-white">Let's Build Something Great Together</h2>
-            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
-                Open to full-time roles, freelance engineering, or strategic technical collaborations in mobile and web development.
-            </p>
+    <!-- Contact & Footer Section (Matching Screenshot 5) -->
+    <footer id="contact" class="relative z-10 py-20 px-6 border-t border-purple-900/40 bg-[#06030D] overflow-hidden">
+        <div class="max-w-7xl mx-auto space-y-16">
 
-            <div class="flex flex-wrap items-center justify-center gap-6 pt-4">
-                <a href="mailto:krishnakantbhardwaj2000@gmail.com" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-400 via-aura-mint to-amber-400 text-slate-950 font-extrabold text-lg shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:scale-105 transition-all flex items-center gap-3">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>krishnakantbhardwaj2000@gmail.com</span>
-                </a>
+            <!-- Footer Grid -->
+            <div class="grid md:grid-cols-12 gap-10">
+
+                <!-- Left Info -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-400/30 bg-purple-950/40 text-purple-200 font-bold text-xs">
+                        Krishnakant.dev
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed max-w-sm">
+                        Full-Stack Mobile & Web Developer crafting scalable applications, real-time engines, and interactive web experiences.
+                    </p>
+
+                    <!-- Social Buttons -->
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://github.com/Krishnakant-2000" target="_blank" class="w-10 h-10 rounded-full bg-purple-950/60 border border-purple-800/60 flex items-center justify-center text-slate-300 hover:text-white hover:border-pink-500 transition-all">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="mailto:krishnakantbhardwaj2000@gmail.com" class="w-10 h-10 rounded-full bg-purple-950/60 border border-purple-800/60 flex items-center justify-center text-slate-300 hover:text-white hover:border-pink-500 transition-all">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Middle Links -->
+                <div class="md:col-span-3 space-y-3">
+                    <div class="text-xs font-bold text-pink-400 uppercase tracking-wider">Quick Links</div>
+                    <ul class="space-y-2 text-sm text-slate-300 font-medium">
+                        <li><a href="#hero" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#projects" class="hover:text-white transition-colors">Portfolios</a></li>
+                        <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Contact -->
+                <div class="md:col-span-4 space-y-3">
+                    <div class="text-xs font-bold text-pink-400 uppercase tracking-wider">Contact Email</div>
+                    <div class="text-sm text-slate-200 font-bold">krishnakantbhardwaj2000@gmail.com</div>
+                    <div class="text-xs text-slate-400 mt-2">Noida / Delhi NCR, India</div>
+                </div>
+
             </div>
 
-            <div class="flex items-center justify-center gap-6 pt-6 text-slate-400">
-                <a href="https://github.com/Krishnakant-2000" target="_blank" class="w-12 h-12 rounded-full bg-[#0C121E] border border-slate-800 flex items-center justify-center text-xl hover:text-aura-mint hover:border-aura-mint transition-all">
-                    <i class="fa-brands fa-github"></i>
-                </a>
+            <!-- Watermark Display Text -->
+            <div class="relative pt-12 border-t border-purple-900/20 text-center overflow-hidden">
+                <div class="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-800/30 via-pink-800/30 to-orange-800/30 tracking-wide select-none uppercase pointer-events-none whitespace-normal px-4">
+                    KRISHNAKANT BHARDWAJ
+                </div>
+                <p class="text-xs text-slate-500 mt-4">&copy; 2026 Krishnakant Bhardwaj. All rights reserved.</p>
             </div>
+
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="relative z-10 py-8 border-t border-slate-800/80 text-center text-xs text-slate-500">
-        <p>&copy; 2026 Krishnakant Bhardwaj. Built with HTML5, Tailwind CSS, & JavaScript.</p>
     </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-8" onclick="closeLightbox()">
+        <div class="relative max-w-5xl w-full max-h-[90vh] bg-[#130C24] border border-purple-500/40 rounded-3xl overflow-hidden shadow-2xl flex flex-col" onclick="event.stopPropagation()">
+            <div class="p-4 sm:px-6 sm:py-4 border-b border-purple-900/40 flex items-center justify-between bg-[#090512]">
+                <h3 id="lightboxTitle" class="font-display text-base sm:text-lg font-bold text-white">Preview</h3>
+                <button onclick="closeLightbox()" class="w-9 h-9 rounded-full bg-purple-950 text-slate-300 hover:text-white hover:bg-purple-800 flex items-center justify-center text-lg transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-4 sm:p-6 flex-1 overflow-auto flex items-center justify-center bg-[#090512]">
+                <img id="lightboxImg" src="" alt="Enlarged Preview" class="max-w-full max-h-[75vh] object-contain rounded-2xl border border-purple-500/30 shadow-2xl">
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
