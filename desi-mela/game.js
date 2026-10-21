@@ -197,6 +197,19 @@ class DesiMelaGame {
 
     this.canvas.addEventListener('touchend', () => this.handlePointerUp());
 
+    // Window global release fallback so dragging outside canvas resets state
+    window.addEventListener('mouseup', () => {
+      if (this.isHolding || this.isScoping) {
+        this.handlePointerUp();
+      }
+    });
+
+    window.addEventListener('touchend', () => {
+      if (this.isHolding || this.isScoping) {
+        this.handlePointerUp();
+      }
+    });
+
     // Top-Left Action Icons
     const btnBulb = document.getElementById('btn-help-bulb');
     if (btnBulb) {
@@ -899,6 +912,12 @@ class DesiMelaGame {
     const mainMenu = document.getElementById('main-menu-overlay');
     if (mainMenu && !mainMenu.classList.contains('hidden')) return;
 
+    // Auto-close win modal on next tap so gameplay continues seamlessly
+    const winModal = document.getElementById('modal-overlay');
+    if (winModal && winModal.classList.contains('active')) {
+      winModal.classList.remove('active');
+    }
+
     // Prevent re-triggering shot while a projectile is still in flight
     if (this.activeArrow || this.activeRing || this.activeBall || this.activePebble || this.activeCoin || this.activeBullet || this.handThrowing || this.hathodaSwinging) {
       return;
@@ -1152,7 +1171,14 @@ class DesiMelaGame {
     if (descEl) descEl.innerText = desc;
 
     const modal = document.getElementById('modal-overlay');
-    if (modal) modal.classList.add('active');
+    if (modal) {
+      modal.classList.add('active');
+      setTimeout(() => {
+        if (modal && modal.classList.contains('active')) {
+          modal.classList.remove('active');
+        }
+      }, 1800);
+    }
   }
 
   closeModal() {
