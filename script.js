@@ -46,7 +46,7 @@ function typeEffect() {
     setTimeout(typeEffect, nextSpeed);
 }
 
-// Parallax Twinkling Starfield Background Canvas
+// Parallax Twinkling Starfield Background Canvas (Aura Mint & Solar Amber)
 function initStarfieldCanvas() {
     const canvas = document.getElementById("bgCanvas");
     if (!canvas) return;
@@ -56,10 +56,10 @@ function initStarfieldCanvas() {
     let height = canvas.height = window.innerHeight;
 
     let stars = [];
-    const starCount = Math.floor((width * height) / 4000); // Elegant, non-cluttered density
+    const starCount = Math.floor((width * height) / 3800); // Elegant density
     let scrollY = window.scrollY;
 
-    const mouse = { x: null, y: null, radius: 120 };
+    const mouse = { x: null, y: null, radius: 130 };
 
     window.addEventListener("resize", () => {
         width = canvas.width = window.innerWidth;
@@ -89,11 +89,11 @@ function initStarfieldCanvas() {
             this.alpha = Math.random() * 0.7 + 0.15;
             this.twinkleSpeed = Math.random() * 0.015 + 0.003;
             this.twinkleDirection = Math.random() > 0.5 ? 1 : -1;
-            this.color = Math.random() > 0.7
-                ? "rgba(56, 189, 248, " // Soft sky blue
-                : Math.random() > 0.4
-                ? "rgba(139, 92, 246, " // Soft purple
-                : "rgba(255, 255, 255, "; // Soft white
+            this.color = Math.random() > 0.6
+                ? "rgba(0, 245, 160, " // Aura Emerald Mint
+                : Math.random() > 0.35
+                ? "rgba(250, 204, 21, " // Solar Amber Gold
+                : "rgba(255, 255, 255, "; // Pure White
         }
 
         update() {
@@ -109,7 +109,7 @@ function initStarfieldCanvas() {
                 const dy = mouse.y - (this.y - scrollY * this.depth % height);
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < mouse.radius) {
-                    this.alpha = Math.min(0.95, this.alpha + 0.2);
+                    this.alpha = Math.min(0.95, this.alpha + 0.25);
                 }
             }
         }
@@ -124,7 +124,7 @@ function initStarfieldCanvas() {
             ctx.fillStyle = this.color + this.alpha + ")";
             if (this.size > 1.5) {
                 ctx.shadowBlur = 6;
-                ctx.shadowColor = "rgba(56, 189, 248, 0.5)";
+                ctx.shadowColor = "rgba(0, 245, 160, 0.4)";
             }
             ctx.fill();
             ctx.shadowBlur = 0;

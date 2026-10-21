@@ -1,4 +1,4 @@
-/* Refined Recruiter-Friendly Dark Theme Styling */
+/* Refined Aura Emerald & Solar Amber Recruiter Theme */
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
@@ -6,16 +6,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #090D16;
+  background: #06090F;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E293B;
+  background: #1A2333;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #38BDF8;
+  background: #00F5A0;
 }
 
 /* Smooth Scrolling */
@@ -25,6 +25,6 @@ html {
 
 /* Selection Color */
 ::selection {
-  background: #38BDF8;
-  color: #090D16;
+  background: #00F5A0;
+  color: #06090F;
 }
